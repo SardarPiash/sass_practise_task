@@ -1,0 +1,112 @@
+// imorting a css file for uning it's prperty value
+@forward "../css/base/forword";
+
+// importing this in acess mode for accessing the variable
+@use "../css/util/variable_use";
+
+
+// variable declare
+// global variable
+$main-color: #3498db;  
+$border-color: red;
+
+
+
+body {
+  background-color: #f4f4f4;
+}
+
+.hello-world {
+    // local variable
+  $border-radius:5px;
+  color: $main-color;
+  border: 1px solid $border-color;
+  width: 50%;
+  border-radius: $border-radius;
+}
+
+
+// nesting sass
+ul{
+    display: flex;
+    list-style-type: none;
+    gap: 10%;
+
+    li{
+        color: red;
+        border: 1px solid $border-color;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    li:hover{
+        background-color: $main-color;
+        color: white;
+        transition: .9s;
+    }
+}
+
+/* mixin/include and extend/inheritence */
+
+@mixin button-style($padding,$color){
+  padding: $padding;
+  background-color: $color;
+}
+
+.button{
+    padding: 20px;
+    background-color: $border-color
+}
+
+.button_1{
+    @include button-style(10px,$main-color);
+}
+.button_2{
+    @include button-style(12px,$border-color);
+}
+.button_3{
+    @include button-style(14px,green);
+}
+// inherit
+.button_4{
+    @extend .button;
+}
+
+
+// loop
+
+
+
+// @for $i from 1 through 13 {
+//     .col-#{$i} {
+//         font-size: #{$i*5}px;
+//     }
+// }
+
+$i: 1;
+
+@while $i < 13 {
+    .col-#{$i} {
+        font-size: #{$i * 5}px;
+    }
+
+    $i: $i + 1; 
+}
+
+
+// each
+
+// making a list like object
+$colors: (color1:red,color2:green,color3:yellow,color4:blue,color5:green,color6:gray,color7:black);
+
+@each $key, $color in $colors{
+     .#{$color}-text{
+        color: $color;
+     }
+}
+
+
+
+.try{
+    font-size: 40px;
+    color: red;
+}

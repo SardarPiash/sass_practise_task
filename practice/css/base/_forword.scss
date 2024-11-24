@@ -1,0 +1,12 @@
+// import to access variable
+@use "../util/variable_use" as variable;
+
+
+// this file will be import using forword
+.where{
+    color: variable.$border-color;
+    font-size: 20px;
+}
+.lorem{
+    color: variable.$main-color;
+}

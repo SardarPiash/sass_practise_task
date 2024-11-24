@@ -1,0 +1,156 @@
+// $button-color: blue;
+// $button-radius: 10px;
+$widthofbutton:70px;
+$heightofbutton: 30px;
+
+@mixin buttonGuide($color,$radius){
+    width: $widthofbutton;
+    height: $heightofbutton;
+    background-color: $color;
+}
+
+// @mixin buttonDisable
+
+.default{
+    @include buttonGuide(blue ,8px );
+}
+.hover{
+    @include buttonGuide(red ,10px );
+    &:hover{
+        background-color: rgb(243, 171, 171);
+        transition: 0.4s;
+    }
+}
+
+.pressed{
+    @include buttonGuide(rgb(151, 96, 96),12px );
+
+    &:focus{
+        background-color: red;
+    }
+}
+.disable{
+    @extend .default;
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: rgb(225, 186, 186);
+
+}
+
+
+@mixin input($opacity){
+    background-color: white;
+    width: 300px;
+    height: 40px;
+    color: black;
+    &::placeholder{
+        color: red;
+        opacity: $opacity;
+    }
+}
+.input-field{
+    @include input(0.6);
+
+    &:focus{
+       &::placeholder{
+        color:black;
+       }
+    }
+
+}
+
+
+@mixin imgPoperties($right){
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    right: $right;
+    top: 5px;
+}
+.status-container{
+    width: 40%;
+    position: relative;
+}
+.status-input{
+    width: 100%;
+    &::placeholder{
+        color: blue;
+    }
+    &:focus{
+        color: red;
+    }
+    &:hover{
+        $hoverWidth: 70%;
+        $imgPoosition : 100% - 70%;
+        width: 70%;
+        + .img{
+            @include imgPoperties($imgPoosition);
+        }
+    }
+}
+
+
+
+.img{
+    @include imgPoperties(0%);
+}
+
+.snack{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+// mixin
+@mixin snack-bar-container($bg){
+    width: 40%;
+    height: 50px;
+    background-color: $bg;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+
+
+// call mixin
+.snack-bar-container{
+    @include snack-bar-container(gray)
+}
+
+@mixin snack-divs($width,$color){
+    width: $width;
+     height: 100%;
+    background-color: $color;
+}
+@for $i from 1 to 4{
+    .snack-div-#{$i}{
+        @if $i == 1{
+            @include snack-divs(10%,rgb(91, 206, 160));
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }@else if $i == 2{
+            @include snack-divs(80%,white);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }@else if $i == 3{
+            @include snack-divs(10%,red );
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+       
+    }
+}
+
+.success-icon-img{
+    width: 10%;
+    height: 100%;
+    background-color: black;
+}
+
+.snack-text{
+    width: 85%;
+    height: 100%;
+    background-color: blue;
+}

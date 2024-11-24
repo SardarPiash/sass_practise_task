@@ -1,0 +1,138 @@
+.where {
+  color: red;
+  font-size: 20px;
+}
+
+.lorem {
+  color: #3498db;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+
+.hello-world {
+  color: #3498db;
+  border: 1px solid red;
+  width: 50%;
+  border-radius: 5px;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+  gap: 10%;
+}
+ul li {
+  color: red;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 5px;
+}
+ul li:hover {
+  background-color: #3498db;
+  color: white;
+  transition: 0.9s;
+}
+
+/* mixin/include and extend/inheritence */
+.button, .button_4 {
+  padding: 20px;
+  background-color: red;
+}
+
+.button_1 {
+  padding: 10px;
+  background-color: #3498db;
+}
+
+.button_2 {
+  padding: 12px;
+  background-color: red;
+}
+
+.button_3 {
+  padding: 14px;
+  background-color: green;
+}
+
+.col-1 {
+  font-size: 5px;
+}
+
+.col-2 {
+  font-size: 10px;
+}
+
+.col-3 {
+  font-size: 15px;
+}
+
+.col-4 {
+  font-size: 20px;
+}
+
+.col-5 {
+  font-size: 25px;
+}
+
+.col-6 {
+  font-size: 30px;
+}
+
+.col-7 {
+  font-size: 35px;
+}
+
+.col-8 {
+  font-size: 40px;
+}
+
+.col-9 {
+  font-size: 45px;
+}
+
+.col-10 {
+  font-size: 50px;
+}
+
+.col-11 {
+  font-size: 55px;
+}
+
+.col-12 {
+  font-size: 60px;
+}
+
+.red-text {
+  color: red;
+}
+
+.green-text {
+  color: green;
+}
+
+.yellow-text {
+  color: yellow;
+}
+
+.blue-text {
+  color: blue;
+}
+
+.green-text {
+  color: green;
+}
+
+.gray-text {
+  color: gray;
+}
+
+.black-text {
+  color: black;
+}
+
+.try {
+  font-size: 40px;
+  color: red;
+}/*# sourceMappingURL=style.css.map */
