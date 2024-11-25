@@ -102,12 +102,12 @@ $heightofbutton: 30px;
 }
 // mixin
 @mixin snack-bar-container($bg){
-    width: 40%;
+    width: 20%;
     height: 50px;
     background-color: $bg;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     border-radius: 10px;
 }
 
@@ -115,42 +115,206 @@ $heightofbutton: 30px;
 
 // call mixin
 .snack-bar-container{
-    @include snack-bar-container(gray)
+    @include snack-bar-container(rgb(251, 247, 247))
 }
 
 @mixin snack-divs($width,$color){
     width: $width;
-     height: 100%;
+    height: 100%;
     background-color: $color;
 }
 @for $i from 1 to 4{
     .snack-div-#{$i}{
         @if $i == 1{
-            @include snack-divs(10%,rgb(91, 206, 160));
+            @include snack-divs(4%,rgb(91, 206, 160));
             border-top-left-radius: 10px;
             border-bottom-left-radius: 10px;
         }@else if $i == 2{
             @include snack-divs(80%,white);
             display: flex;
             flex-direction: row;
-            justify-content: space-between;
+            justify-content: start;
         }@else if $i == 3{
-            @include snack-divs(10%,red );
+            @include snack-divs(16%,white );
             border-top-right-radius: 10px;
             border-bottom-right-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
        
     }
 }
 
-.success-icon-img{
+.img-div-snak{
     width: 10%;
     height: 100%;
-    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-snak{
+    width: 20px;;
+    height: 20px;
 }
 
 .snack-text{
     width: 85%;
     height: 100%;
-    background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@mixin text-decoration($size,$weight,$color){
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+}
+.text-1{
+    @include text-decoration(15px,bold ,green )
+}
+.text-2{
+    @include text-decoration(10px,normal ,black )
+}
+
+// error snak
+.snack-bar-container-error{
+    @include snack-bar-container(rgb(251, 247, 247))
+}
+@for $i from 1 to 4{
+    .snack-div-#{$i}-error{
+        @if $i == 1{
+            @include snack-divs(4%,rgb(234, 12, 12));
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }@else if $i == 2{
+            @include snack-divs(80%,white);
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+        }@else if $i == 3{
+            @include snack-divs(16%,white );
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+       
+    }
+}
+
+.text-1-error{
+    @include text-decoration(15px,bold ,rgb(252, 35, 35) )
+}
+
+
+// warning snak
+.snack-bar-container-error{
+    @include snack-bar-container(rgb(251, 247, 247))
+}
+
+.snack-div-1-warning{
+    @include snack-divs(4%,rgb(248, 241, 56));
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.text-1-warning{
+    @include text-decoration(15px,bold ,rgb(248, 241, 56) )
+}
+
+// Information snak
+
+.snack-div-1-information{
+    @include snack-divs(4%,rgb(30, 69, 244));
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+
+.text-1-information{
+    @include text-decoration(15px,bold ,rgb(30, 69, 244) )
+}
+
+
+
+// ffffffffffffff
+
+.new-button-main-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+.button-container-inside{
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+@mixin button-styles($bg,$border,$hover-color,$f-color,$cursor){
+    width: 134px;
+    height: 48px;
+    border-radius: 4px;
+    background-color:$bg ;
+    border: $border;
+    cursor: $cursor;
+
+    &:hover{
+      background-color: $hover-color;
+    }
+
+    &:focus{
+        background-color: $f-color;
+    }
+}
+
+
+
+.button-style-1{
+    @include button-styles(#63AAFF,none, #8cbdfa,#0873f6,pointer);
+    
+}
+.button-style-2{
+    @include button-styles(white,1px solid #0097D7,#8cbdfa,#0c76f7,pointer);
+}
+.button-style-3{
+    @include button-styles(transparent,none,transparent,#c3daf6,pointer);
+    &:hover{
+        text-decoration: underline;
+    }
+}
+.button-style-4{
+    @include button-styles(#63AAFF,none,#8cbdfa,#0871f1,pointer);
+}
+.button-style-5{
+    @include button-styles(#63AAFF,none,#8cbdfa,#0e77f6,pointer);
+}
+
+.img-style{
+    width: 10px;
+    height: 10px;
+}
+
+.button-style-1-dis{
+    @include button-styles(#c0c5ca,none, #c0c5ca,#c0c5ca,not-allowed);
+    
+}
+.button-style-2-dis{
+    @include button-styles(#c0c5ca,1px solid #c0c5ca,#c0c5ca,#c0c5ca,not-allowed);
+}
+.button-style-3-dis{
+    @include button-styles(transparent,none,transparent,#c0c5ca,not-allowed);
+    text-decoration: underline;
+}
+.button-style-4-dis{
+    @include button-styles(#c0c5ca,none,#c0c5ca,#c0c5ca,not-allowed);
+}
+.button-style-5-dis{
+    @include button-styles(#c0c5ca,none,#c0c5ca,#c0c5ca,not-allowed);
 }
