@@ -318,3 +318,140 @@ $heightofbutton: 30px;
 .button-style-5-dis{
     @include button-styles(#c0c5ca,none,#c0c5ca,#c0c5ca,not-allowed);
 }
+
+
+// input-filed-container
+.input-filed-container{
+   display: flex;
+   flex-direction: column;
+   margin-top: 30px;
+   margin-left: 100px;
+   width: 280px;
+   height: 50px;
+   gap: 5px;
+}
+@mixin input-filed-style($width,$height,$boder){
+    width: $width;
+    height: $height;
+    border: $boder;
+    border-radius: 4px;
+    &:focus{
+        // border: $boder;
+        outline: $boder;
+    }
+}
+
+@mixin input-text-success($size,$weight,$color){
+   font-size: $size;
+   font-weight: $weight;
+   color: $color;
+}
+
+.input-filed-style{
+    @include input-filed-style(100%,100% , 1.3px solid #2FA92C)
+}
+
+.input-text-success{
+    @include input-text-success(13px,400 ,green )
+}
+
+
+.input-filed-style-warning{
+    @include input-filed-style(100%,100% , 1.3px solid #FFA41A)
+}
+
+.input-text-warning{
+    @include input-text-success(13px,400 ,#FFA41A )
+}
+
+
+.input-filed-style-error{
+    @include input-filed-style(100%,100% , 1.3px solid #ff1a1a)
+}
+
+.input-text-error{
+    @include input-text-success(13px,400 ,#ff1a1a )
+}
+
+
+
+// toggle button
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 28px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  @mixin slider($cursor,$bg){
+        position: absolute;
+        cursor: $cursor;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: $bg;
+        -webkit-transition: .4s;
+        transition: .4s; 
+        border-radius: 34px;
+  }
+  .slider {
+    @include slider(pointer,#ccc);
+  }
+
+  .slider-2 {
+    @include slider(not-allowed,#ccc);
+  }
+
+  .slider-3 {
+    @include slider(not-allowed,#7db8e8);
+  }
+
+  @mixin slider-circle($left,$bg){
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: $left;
+    bottom: 4px;
+    background-color: $bg;
+    -webkit-transition: .3s;
+    transition: .3s;
+    border-radius: 50%;
+  }
+  
+  .slider:before {
+    @include slider-circle(4px,#fcfbfb);
+  }
+  .slider-2:before {
+    @include slider-circle(4px,#fcfbfb);
+  }
+  .slider-3:before {
+    @include slider-circle(16px,#f1eded);
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(16px);
+    -ms-transform: translateX(16px);
+    transform: translateX(16px);
+  }
+
+
+
